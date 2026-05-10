@@ -312,12 +312,13 @@ const memories = [
   { src: './memories/WhatsApp Video 2026-05-10 at 8.10.43 AM.mp4', type: 'video', title: 'Action!', desc: 'Captured in motion.' },
 ];
 
-const radius = Math.round((320 / 2) / Math.tan(Math.PI / memories.length)) + 50;
-
 if (galleryTrack) {
   memories.forEach((memory, index) => {
     const item = document.createElement('div');
-    item.className = 'gallery-item glass-border';
+    item.className = 'gallery-item-new tilt-card';
+    
+    // Stagger animation based on index
+    item.style.animationDelay = `${index * 0.1}s`;
     
     let mediaElement = '';
     if (memory.type === 'video') {
@@ -334,66 +335,9 @@ if (galleryTrack) {
       </div>
     `;
     
-    const angle = index * (360 / memories.length);
-    item.style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
-    
     item.addEventListener('click', () => openLightbox(memory));
     galleryTrack.appendChild(item);
   });
-}
-
-// 3D Carousel Logic
-let carouselRotation = 0;
-let targetRotation = 0;
-let isDragging = false;
-let startX = 0;
-
-const gallerySlider = document.querySelector('.gallery-slider');
-
-function updateCarousel() {
-  if (!galleryTrack) return;
-  
-  // Auto-scroll in slow motion when not dragging
-  if (!isDragging) {
-    targetRotation += 0.08; 
-  }
-  
-  carouselRotation += (targetRotation - carouselRotation) * 0.05;
-  galleryTrack.style.transform = `translateZ(${-radius}px) rotateY(${carouselRotation}deg)`;
-  requestAnimationFrame(updateCarousel);
-}
-updateCarousel();
-
-if (gallerySlider) {
-  gallerySlider.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    startX = e.clientX;
-  });
-  window.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
-    const dx = e.clientX - startX;
-    targetRotation += dx * 0.2;
-    startX = e.clientX;
-  });
-  window.addEventListener('mouseup', () => { isDragging = false; });
-  window.addEventListener('mouseleave', () => { isDragging = false; });
-
-  gallerySlider.addEventListener('touchstart', (e) => {
-    isDragging = true;
-    startX = e.touches[0].clientX;
-  });
-  window.addEventListener('touchmove', (e) => {
-    if (!isDragging) return;
-    const dx = e.touches[0].clientX - startX;
-    targetRotation += dx * 0.3;
-    startX = e.touches[0].clientX;
-  });
-  window.addEventListener('touchend', () => { isDragging = false; });
-
-  gallerySlider.addEventListener('wheel', (e) => {
-    e.preventDefault();
-    targetRotation += e.deltaY * 0.1;
-  }, { passive: false });
 }
 
 // Floating Particles Effect
