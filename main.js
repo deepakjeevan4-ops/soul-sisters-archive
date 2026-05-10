@@ -101,34 +101,6 @@ if (isBond) {
   }
 }
 
-// Farewell Overlay Logic (Last Page - Connect)
-if (isConnect) {
-  // Create farewell overlay structure
-  const farewellOverlay = document.createElement('div');
-  farewellOverlay.id = 'farewell-overlay';
-  farewellOverlay.className = 'farewell-overlay';
-  farewellOverlay.innerHTML = `
-    <div class="farewell-content">
-      <div class="farewell-emojis">
-        <span class="emoji left-cry">😭</span>
-        <span class="emoji center-hug">🫂</span>
-        <span class="emoji right-cry">😭</span>
-      </div>
-      <h2 class="farewell-text">Goodbye for now...</h2>
-      <p class="farewell-subtext">Thank you for sharing these beautiful memories. Until our next adventure! ✨</p>
-      <button class="farewell-btn glass-card" onclick="document.getElementById('farewell-overlay').classList.remove('active');">Replay Memories</button>
-    </div>
-  `;
-  document.body.appendChild(farewellOverlay);
-
-  // Trigger when any video on the connect page finishes
-  const connectVideos = document.querySelectorAll('video');
-  connectVideos.forEach(video => {
-    video.addEventListener('ended', () => {
-      farewellOverlay.classList.add('active');
-    });
-  });
-}
 
 // Floating Emoji Mascot Logic
 const floatingEmoji = document.createElement('div');
