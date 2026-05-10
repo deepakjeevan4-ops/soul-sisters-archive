@@ -666,25 +666,25 @@ if (musicBtn) {
 }
 
 // Add Global Scroll Animations (AOS)
-const observerOptions = {
+const globalScrollObserverOptions = {
   root: null,
   rootMargin: '0px',
   threshold: 0.15
 };
 
-const scrollObserver = new IntersectionObserver((entries, observer) => {
+const globalScrollObserver = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('animate-reveal');
       observer.unobserve(entry.target);
     }
   });
-}, observerOptions);
+}, globalScrollObserverOptions);
 
 document.querySelectorAll('h1, h2, h3, p, .glass-card, video').forEach((el, index) => {
   if (!el.classList.contains('gallery-item-new') && !el.closest('#farewell-overlay') && !el.closest('.lightbox')) {
     el.classList.add('reveal-hidden');
     el.style.transitionDelay = `${(index % 5) * 0.1}s`;
-    scrollObserver.observe(el);
+    globalScrollObserver.observe(el);
   }
 });
