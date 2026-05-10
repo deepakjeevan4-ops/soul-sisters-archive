@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import { resolve } from 'path'
 
 export default defineConfig({
-  base: '/soul-sisters-archive/',
+  base: '/our-memories/',
   build: {
     rollupOptions: {
       input: {
