@@ -101,6 +101,24 @@ if (isBond) {
   }
 }
 
+// Cinematic Transition from Memories to Connect
+if (isMemories) {
+  const nextBtn = document.getElementById('next-page-btn');
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      const transitionScreen = document.createElement('div');
+      transitionScreen.className = 'ultra-transition';
+      transitionScreen.innerHTML = `
+        <div class="transition-circle"></div>
+        <h2 class="transition-text">A Final Message...</h2>
+      `;
+      document.body.appendChild(transitionScreen);
+      setTimeout(() => transitionScreen.classList.add('active'), 10);
+      setTimeout(() => window.location.href = './connect.html', 2800);
+    });
+  }
+}
+
 
 // Floating Emoji Mascot Logic
 const floatingEmoji = document.createElement('div');
