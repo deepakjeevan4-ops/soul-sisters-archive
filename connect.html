@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connect | SoulSisters</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      .connect-page {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 80px 20px;
+        background: radial-gradient(circle at center, #1a0b2e 0%, #050208 100%);
+      }
+      .connect-container {
+        width: 100%;
+        animation: fadeIn 1s ease-out;
+      }
+      .connect-layout {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      @media (max-width: 768px) {
+        .connect-layout {
+          flex-direction: column;
+        }
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <!-- Background Music -->
+    <audio id="bg-music" loop>
+      <source src="/audio/bg_music.mpeg" type="audio/mpeg">
+    </audio>
+    <button id="music-toggle" class="music-btn glass-card" data-magnetic>
+      <span class="music-icon">🎵</span>
+      <span class="music-text">Play</span>
+      <div class="music-waves">
+        <span></span><span></span><span></span>
+      </div>
+    </button>
+    
+    <!-- Floating Background Particles -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="logo">Soul<span>Sisters</span></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="bond.html">The Bond</a></li>
+        <li><a href="memories.html">Memories</a></li>
+        <li><a href="connect.html" class="active btn-glow" data-magnetic>Connect</a></li>
+      </ul>
+    </nav>
+
+    <main class="connect-page">
+      <div class="connect-container connect-layout">
+        
+        <!-- Video Section -->
+        <div class="glass-card tilt-card" style="padding: 1rem; border-radius: 30px; flex: 1; min-width: 300px;">
+          <video src="/connect_video2.mp4" controls playsinline style="width: 100%; height: auto; max-height: 70vh; border-radius: 20px; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.3); object-fit: cover;"></video>
+        </div>
+
+        <!-- Video Section 2 -->
+        <div class="glass-card tilt-card" style="padding: 1rem; border-radius: 30px; flex: 1; min-width: 300px;">
+          <video src="/connect_video.mp4" controls playsinline style="width: 100%; height: auto; max-height: 70vh; border-radius: 20px; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.3); object-fit: cover;"></video>
+        </div>
+
+      </div>
+    </main>
+
+
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

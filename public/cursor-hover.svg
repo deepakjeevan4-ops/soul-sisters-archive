@@ -1,0 +1,10 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- A glowing pointer star/sparkle for hover -->
+  <path d="M16 2L19 12L29 16L19 20L16 30L13 20L3 16L13 12L16 2Z" fill="url(#grad)" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round"/>
+  <defs>
+    <linearGradient id="grad" x1="16" y1="2" x2="16" y2="30" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#ff7eb3"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memories | SoulSisters</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <!-- Background Music -->
+    <audio id="bg-music" loop>
+      <source src="/audio/bg_music.mpeg" type="audio/mpeg">
+    </audio>
+    <button id="music-toggle" class="music-btn glass-card" data-magnetic>
+      <span class="music-icon">🎵</span>
+      <span class="music-text">Play</span>
+      <div class="music-waves">
+        <span></span><span></span><span></span>
+      </div>
+    </button>
+    
+    <!-- Secret Question Overlay (Third Page) -->
+    <div id="secret-gate-gallery" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(10, 2, 20, 0.98); backdrop-filter: blur(20px); z-index: 10000; display: flex; align-items: center; justify-content: center; flex-direction: column; transition: opacity 0.8s ease;">
+      <div class="glass-card text-center tilt-card" style="padding: 3rem; max-width: 450px; width: 90%;">
+        <div style="font-size: 3rem; margin-bottom: 1rem;">👗</div>
+        <h2 style="font-family: 'Playfair Display', serif; color: var(--primary-color); margin-bottom: 1rem; font-size: 2rem;">Moment Vault</h2>
+        <p style="margin-bottom: 2rem; font-size: 1.2rem; color: #fff;">Mostly wear dress colour in 1st ?</p>
+        <input type="text" id="secret-answer-gallery" placeholder="Enter color..." class="glass-input" style="text-align: center; font-size: 1.5rem; letter-spacing: 2px; font-weight: bold; padding: 1rem;" autocomplete="off">
+        <p id="secret-error-gallery" style="color: #ff4757; margin-top: 1rem; font-size: 0.9rem; opacity: 0; transition: opacity 0.3s;"></p>
+      </div>
+    </div>
+    
+    <!-- Floating Background Particles -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="logo">Soul<span>Sisters</span></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="bond.html">The Bond</a></li>
+        <li><a href="memories.html" class="active">Memories</a></li>
+        <li><a href="connect.html" class="btn-glow" data-magnetic>Connect</a></li>
+      </ul>
+    </nav>
+
+    <main style="padding-top: 100px;">
+      <!-- Interactive Memories Gallery -->
+      <section id="memories" class="memories-section">
+        <div class="section-content">
+          <div class="container">
+            <h2 class="section-title text-center">A Tapestry of Memories</h2>
+            <div class="gallery-slider">
+              <div class="gallery-track" id="galleryTrack">
+                <!-- Dynamically populated via JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+      <span class="lightbox-close">&times;</span>
+      <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="">
+        <video id="lightbox-video" src="" controls autoplay loop style="display:none;"></video>
+      </div>
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+
+
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- A sleek, sharp, glowing arrow pointer -->
+  <path d="M5 4L27 15L15 18L10 28L5 4Z" fill="url(#grad)" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round"/>
+  <defs>
+    <linearGradient id="grad" x1="5" y1="4" x2="27" y2="28" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ff7eb3"/>
+      <stop offset="1" stop-color="#8A2387"/>
+    </linearGradient>
+  </defs>
+</svg>
