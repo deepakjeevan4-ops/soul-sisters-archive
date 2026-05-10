@@ -304,22 +304,22 @@ const galleryTrack = document.getElementById('galleryTrack');
 
 // We use placeholders that look aesthetic, plus our generated images
 const memories = [
-  { src: '/memories/WhatsApp Image 2026-05-10 at 8.10.44 AM (1).jpeg', type: 'image', title: 'Memories', desc: 'Always together.' },
-  { src: '/memories/WhatsApp Image 2026-05-10 at 8.10.44 AM (2).jpeg', type: 'image', title: 'Fun Times', desc: 'Laughter and joy.' },
-  { src: '/memories/WhatsApp Image 2026-05-10 at 8.10.44 AM.jpeg', type: 'image', title: 'Our Bond', desc: 'Unbreakable connection.' },
-  { src: '/memories/WhatsApp Image 2026-05-10 at 8.10.45 AM (1).jpeg', type: 'image', title: 'Adventures', desc: 'Exploring the world.' },
-  { src: '/memories/WhatsApp Image 2026-05-10 at 8.10.45 AM (2).jpeg', type: 'image', title: 'Smiles', desc: 'Happiness is with you.' },
-  { src: '/memories/WhatsApp Image 2026-05-10 at 8.10.45 AM.jpeg', type: 'image', title: 'Good Vibes', desc: 'Chilling out.' },
-  { src: '/memories/WhatsApp Image 2026-05-10 at 8.10.46 AM (1).jpeg', type: 'image', title: 'Sweet Moments', desc: 'Cherishing these days.' },
-  { src: '/memories/WhatsApp Image 2026-05-10 at 8.10.46 AM.jpeg', type: 'image', title: 'Together', desc: 'Best friends forever.' },
-  { src: '/memories/WhatsApp Image 2026-05-10 at 8.10.47 AM.jpeg', type: 'image', title: 'Forever', desc: 'No matter what.' },
-  { src: '/memories/WhatsApp Image 2026-05-10 at 8.10.48 AM.jpeg', type: 'image', title: 'Collage Love', desc: 'Beautiful moments combined.' },
-  { src: '/memories/WhatsApp Image 2026-05-10 at 8.10.48 AM (1).jpeg', type: 'image', title: 'Uyireeee', desc: 'My life, my soul.' },
-  { src: '/memories/WhatsApp Image 2026-05-10 at 8.10.48 AM (2).jpeg', type: 'image', title: 'Holding Hands', desc: 'A promise to stay.' },
-  { src: '/memories/WhatsApp Image 2026-05-10 at 8.10.49 AM.jpeg', type: 'image', title: 'Heart Shapes', desc: 'Love in every gesture.' },
-  { src: '/memories/WhatsApp Image 2026-05-10 at 8.10.49 AM (1).jpeg', type: 'image', title: 'Group Selfie', desc: 'The best crew.' },
-  { src: '/memories/WhatsApp Image 2026-05-10 at 8.10.49 AM (2).jpeg', type: 'image', title: 'Pure Joy', desc: 'Smiles that light up the room.' },
-  { src: '/memories/WhatsApp Video 2026-05-10 at 8.10.43 AM.mp4', type: 'video', title: 'Action!', desc: 'Captured in motion.' },
+  { src: './memories/WhatsApp Image 2026-05-10 at 8.10.44 AM (1).jpeg', type: 'image', title: 'Memories', desc: 'Always together.' },
+  { src: './memories/WhatsApp Image 2026-05-10 at 8.10.44 AM (2).jpeg', type: 'image', title: 'Fun Times', desc: 'Laughter and joy.' },
+  { src: './memories/WhatsApp Image 2026-05-10 at 8.10.44 AM.jpeg', type: 'image', title: 'Our Bond', desc: 'Unbreakable connection.' },
+  { src: './memories/WhatsApp Image 2026-05-10 at 8.10.45 AM (1).jpeg', type: 'image', title: 'Adventures', desc: 'Exploring the world.' },
+  { src: './memories/WhatsApp Image 2026-05-10 at 8.10.45 AM (2).jpeg', type: 'image', title: 'Smiles', desc: 'Happiness is with you.' },
+  { src: './memories/WhatsApp Image 2026-05-10 at 8.10.45 AM.jpeg', type: 'image', title: 'Good Vibes', desc: 'Chilling out.' },
+  { src: './memories/WhatsApp Image 2026-05-10 at 8.10.46 AM (1).jpeg', type: 'image', title: 'Sweet Moments', desc: 'Cherishing these days.' },
+  { src: './memories/WhatsApp Image 2026-05-10 at 8.10.46 AM.jpeg', type: 'image', title: 'Together', desc: 'Best friends forever.' },
+  { src: './memories/WhatsApp Image 2026-05-10 at 8.10.47 AM.jpeg', type: 'image', title: 'Forever', desc: 'No matter what.' },
+  { src: './memories/WhatsApp Image 2026-05-10 at 8.10.48 AM.jpeg', type: 'image', title: 'Collage Love', desc: 'Beautiful moments combined.' },
+  { src: './memories/WhatsApp Image 2026-05-10 at 8.10.48 AM (1).jpeg', type: 'image', title: 'Uyireeee', desc: 'My life, my soul.' },
+  { src: './memories/WhatsApp Image 2026-05-10 at 8.10.48 AM (2).jpeg', type: 'image', title: 'Holding Hands', desc: 'A promise to stay.' },
+  { src: './memories/WhatsApp Image 2026-05-10 at 8.10.49 AM.jpeg', type: 'image', title: 'Heart Shapes', desc: 'Love in every gesture.' },
+  { src: './memories/WhatsApp Image 2026-05-10 at 8.10.49 AM (1).jpeg', type: 'image', title: 'Group Selfie', desc: 'The best crew.' },
+  { src: './memories/WhatsApp Image 2026-05-10 at 8.10.49 AM (2).jpeg', type: 'image', title: 'Pure Joy', desc: 'Smiles that light up the room.' },
+  { src: './memories/WhatsApp Video 2026-05-10 at 8.10.43 AM.mp4', type: 'video', title: 'Action!', desc: 'Captured in motion.' },
 ];
 
 const radius = Math.round((320 / 2) / Math.tan(Math.PI / memories.length)) + 50;
