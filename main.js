@@ -308,8 +308,7 @@ const memories = [
   { src: './memories/WhatsApp Image 2026-05-10 at 8.10.48 AM (2).jpeg', type: 'image', title: 'Holding Hands', desc: 'A promise to stay.' },
   { src: './memories/WhatsApp Image 2026-05-10 at 8.10.49 AM.jpeg', type: 'image', title: 'Heart Shapes', desc: 'Love in every gesture.' },
   { src: './memories/WhatsApp Image 2026-05-10 at 8.10.49 AM (1).jpeg', type: 'image', title: 'Group Selfie', desc: 'The best crew.' },
-  { src: './memories/WhatsApp Image 2026-05-10 at 8.10.49 AM (2).jpeg', type: 'image', title: 'Pure Joy', desc: 'Smiles that light up the room.' },
-  { src: './memories/WhatsApp Video 2026-05-10 at 8.10.43 AM.mp4', type: 'video', title: 'Action!', desc: 'Captured in motion.' },
+  { src: './memories/WhatsApp Image 2026-05-10 at 8.10.49 AM (2).jpeg', type: 'image', title: 'Pure Joy', desc: 'Smiles that light up the room.' }
 ];
 
 if (galleryTrack) {
@@ -665,3 +664,27 @@ if (musicBtn) {
   musicBtn.addEventListener('mouseenter', () => { if (follower) follower.classList.add('active'); });
   musicBtn.addEventListener('mouseleave', () => { if (follower) follower.classList.remove('active'); });
 }
+/ /   A d d   G l o b a l   S c r o l l   A n i m a t i o n s   ( A O S ) 
+ c o n s t   o b s e r v e r O p t i o n s   =   { 
+     r o o t :   n u l l , 
+     r o o t M a r g i n :   ' 0 p x ' , 
+     t h r e s h o l d :   0 . 1 5 
+ } ; 
+ 
+ c o n s t   s c r o l l O b s e r v e r   =   n e w   I n t e r s e c t i o n O b s e r v e r ( ( e n t r i e s ,   o b s e r v e r )   = >   { 
+     e n t r i e s . f o r E a c h ( e n t r y   = >   { 
+         i f   ( e n t r y . i s I n t e r s e c t i n g )   { 
+             e n t r y . t a r g e t . c l a s s L i s t . a d d ( ' a n i m a t e - r e v e a l ' ) ; 
+             o b s e r v e r . u n o b s e r v e ( e n t r y . t a r g e t ) ; 
+         } 
+     } ) ; 
+ } ,   o b s e r v e r O p t i o n s ) ; 
+ 
+ d o c u m e n t . q u e r y S e l e c t o r A l l ( ' h 1 ,   h 2 ,   h 3 ,   p ,   . g l a s s - c a r d ,   v i d e o ' ) . f o r E a c h ( ( e l ,   i n d e x )   = >   { 
+     i f   ( ! e l . c l a s s L i s t . c o n t a i n s ( ' g a l l e r y - i t e m - n e w ' )   & &   ! e l . c l o s e s t ( ' # f a r e w e l l - o v e r l a y ' )   & &   ! e l . c l o s e s t ( ' . l i g h t b o x ' ) )   { 
+         e l . c l a s s L i s t . a d d ( ' r e v e a l - h i d d e n ' ) ; 
+         e l . s t y l e . t r a n s i t i o n D e l a y   =   \ \ s \ ; 
+         s c r o l l O b s e r v e r . o b s e r v e ( e l ) ; 
+     } 
+ } ) ;  
+ 
