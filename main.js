@@ -1,9 +1,10 @@
 import './style.css'
 
 const path = window.location.pathname;
-
-
-// Background Music Logic
+const isHome = path.endsWith('index.html') || path === '/' || path.endsWith('soul-sisters-archive/');
+const isBond = path.endsWith('bond.html');
+const isMemories = path.endsWith('memories.html');
+const isConnect = path.endsWith('connect.html');
 const musicBtn = document.getElementById('music-toggle');
 const bgMusic = document.getElementById('bg-music');
 const musicText = document.querySelector('.music-text');
@@ -68,7 +69,7 @@ allVideos.forEach(video => {
 
 // Cinematic Page Transition Logic (Home Page)
 const heroVideo = document.getElementById('hero-video');
-if (heroVideo && (path.endsWith('index.html') || path === '/')) {
+if (heroVideo && isHome) {
   heroVideo.addEventListener('ended', () => {
     const transitionScreen = document.createElement('div');
     transitionScreen.className = 'ultra-transition';
@@ -78,12 +79,12 @@ if (heroVideo && (path.endsWith('index.html') || path === '/')) {
     `;
     document.body.appendChild(transitionScreen);
     setTimeout(() => transitionScreen.classList.add('active'), 10);
-    setTimeout(() => window.location.href = 'bond.html', 2800);
+    setTimeout(() => window.location.href = './bond.html', 2800);
   });
 }
 
 // Cinematic Transition for Bond Page
-if (path.endsWith('bond.html')) {
+if (isBond) {
   const bondVideo = document.querySelector('.bond-section video');
   if (bondVideo) {
     bondVideo.addEventListener('ended', () => {
@@ -95,13 +96,13 @@ if (path.endsWith('bond.html')) {
       `;
       document.body.appendChild(transitionScreen);
       setTimeout(() => transitionScreen.classList.add('active'), 10);
-      setTimeout(() => window.location.href = 'memories.html', 2800);
+      setTimeout(() => window.location.href = './memories.html', 2800);
     });
   }
 }
 
 // Farewell Overlay Logic (Last Page - Connect)
-if (path.endsWith('connect.html')) {
+if (isConnect) {
   // Create farewell overlay structure
   const farewellOverlay = document.createElement('div');
   farewellOverlay.id = 'farewell-overlay';
@@ -133,14 +134,13 @@ if (path.endsWith('connect.html')) {
 const floatingEmoji = document.createElement('div');
 floatingEmoji.className = 'floating-emoji-mascot';
 
-
-if (path.endsWith('index.html') || path === '/') {
+if (isHome) {
   floatingEmoji.innerHTML = '👭'; // holding hands
-} else if (path.endsWith('bond.html')) {
+} else if (isBond) {
   floatingEmoji.innerHTML = '👯‍♀️'; // dancing girls
-} else if (path.endsWith('memories.html')) {
+} else if (isMemories) {
   floatingEmoji.innerHTML = '📸'; // camera
-} else if (path.endsWith('connect.html')) {
+} else if (isConnect) {
   floatingEmoji.innerHTML = '🫶'; // heart hands
 } else {
   floatingEmoji.innerHTML = '✨';
@@ -161,7 +161,7 @@ const secretError = document.getElementById('secret-error');
 // Attempt to auto-play music if Home is already unlocked
 if (sessionStorage.getItem('unlocked') === 'true') {
   if (secretGate) secretGate.style.display = 'none';
-  if (path.endsWith('index.html') || path === '/') showMascot(); // Show immediately if already unlocked
+  if (isHome) showMascot(); // Show immediately if already unlocked
   
   if (bgMusic) {
     // Restore playback position
@@ -185,7 +185,7 @@ if (sessionStorage.getItem('unlocked') === 'true') {
 }
 
 // Show immediately on pages without locks (Connect only now)
-if (!path.endsWith('index.html') && path !== '/' && !path.endsWith('bond.html') && !path.endsWith('memories.html')) {
+if (!isHome && !isBond && !isMemories) {
   showMascot();
 }
 
@@ -225,7 +225,7 @@ const secretErrorMemories = document.getElementById('secret-error-memories');
 if (secretGateMemories && secretAnswerMemories) {
   if (sessionStorage.getItem('memoriesUnlocked') === 'true') {
     secretGateMemories.style.display = 'none';
-    if (path.endsWith('bond.html')) showMascot();
+    if (isBond) showMascot();
   } else {
     document.body.style.overflow = 'hidden';
     secretAnswerMemories.addEventListener('keyup', (e) => {
@@ -260,7 +260,7 @@ const secretErrorGallery = document.getElementById('secret-error-gallery');
 if (secretGateGallery && secretAnswerGallery) {
   if (sessionStorage.getItem('galleryUnlocked') === 'true') {
     secretGateGallery.style.display = 'none';
-    if (path.endsWith('memories.html')) showMascot();
+    if (isMemories) showMascot();
   } else {
     document.body.style.overflow = 'hidden';
     secretAnswerGallery.addEventListener('keyup', (e) => {
